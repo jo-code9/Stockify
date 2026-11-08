@@ -2,6 +2,7 @@
 const API_URL = 'http://localhost:3000/api/products';
 let allProducts = [];
 
+
 // Mengambil dan menampilkan data produk
 async function loadProducts() {
     try {

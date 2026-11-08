@@ -4,125 +4,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stockify - Manajemen Inventaris</title>
+    <title>Stockify - Inventory Management</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
 
-    <header>
-        <h1>Stockify</h1>
-        <p>Sistem Manajemen Inventaris dan Stok Barang Toko</p>
-    </header>
+<div class="app-layout">
 
-    <hr>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">S</div>
+            <div>
+                <h2>Stockify</h2>
+                <span>INVENTORY SYSTEM</span>
+            </div>
+        </div>
 
-    <main>
+        <div class="sidebar-label">MENU UTAMA</div>
+
+        <nav class="sidebar-nav">
+            <a href="#dashboard" class="nav-link active">
+                <span>▦</span> Dashboard
+            </a>
+            <a href="#inventory" class="nav-link">
+                <span>▤</span> Data Inventaris
+            </a>
+            <a href="#add-product" class="nav-link">
+                <span>＋</span> Tambah Barang
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-help">
+                <div class="help-icon">✦</div>
+                <strong>Stockify System</strong>
+                <p>Kelola inventaris toko dengan lebih mudah dan efisien.</p>
+            </div>
+            <div class="sidebar-version">STOCKIFY v1.0</div>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <div>
+                <span class="breadcrumb">Workspace / Overview</span>
+                <h1>Dashboard</h1>
+            </div>
+
+            <div class="topbar-profile">
+                <div class="online-indicator"></div>
+                <div class="profile-avatar">A</div>
+                <div class="profile-info">
+                    <strong>Administrator</strong>
+                    <span>Admin Stockify</span>
+                </div>
+            </div>
+        </header>
+
         <!-- DASHBOARD -->
-        <section>
-            <h2>Dashboard</h2>
+        <section id="dashboard" class="content-section">
+            <div class="welcome-banner">
+                <div>
+                    <span class="welcome-tag">INVENTORY OVERVIEW</span>
+                    <h2>Selamat datang di Stockify! 👋</h2>
+                    <p>Pantau dan kelola seluruh inventaris toko kamu dalam satu tempat.</p>
+                </div>
+                <div class="banner-decoration">📦</div>
+            </div>
+
+            <div class="section-heading">
+                <div>
+                    <h2>Ringkasan Inventaris</h2>
+                    <p>Informasi terkini mengenai barang dan stok toko.</p>
+                </div>
+                <span class="live-label"><span></span> Data Inventaris</span>
+            </div>
 
             <div class="dashboard">
-                <div class="dashboard-card">
-                    <h3>📦 Total Barang</h3>
+                <div class="dashboard-card card-blue">
+                    <div class="stat-top">
+                        <span>Total Barang</span>
+                        <div class="stat-icon">▣</div>
+                    </div>
                     <p id="total-products">0</p>
+                    <small>Jumlah jenis barang</small>
                 </div>
 
-                <div class="dashboard-card">
-                    <h3>📊 Total Stok</h3>
+                <div class="dashboard-card card-purple">
+                    <div class="stat-top">
+                        <span>Total Stok</span>
+                        <div class="stat-icon">▤</div>
+                    </div>
                     <p id="total-stock">0</p>
+                    <small>Unit barang tersedia</small>
                 </div>
 
-                <div class="dashboard-card">
-                    <h3>🏷️ Total Kategori</h3>
+                <div class="dashboard-card card-green">
+                    <div class="stat-top">
+                        <span>Total Kategori</span>
+                        <div class="stat-icon">◈</div>
+                    </div>
                     <p id="total-categories">0</p>
+                    <small>Kategori inventaris</small>
                 </div>
 
-                <div class="dashboard-card">
-                    <h3>⚠️ Stok Menipis</h3>
+                <div class="dashboard-card card-orange">
+                    <div class="stat-top">
+                        <span>Stok Menipis</span>
+                        <div class="stat-icon">⚠</div>
+                    </div>
                     <p id="low-stock">0</p>
+                    <small>Perlu segera diperhatikan</small>
                 </div>
 
-                <div class="dashboard-card">
-                    <h3>🚨 Stok Habis</h3>
+                <div class="dashboard-card card-red">
+                    <div class="stat-top">
+                        <span>Stok Habis</span>
+                        <div class="stat-icon">!</div>
+                    </div>
                     <p id="out-stock">0</p>
+                    <small>Barang tanpa stok</small>
                 </div>
             </div>
         </section>
 
         <!-- FORM TAMBAH BARANG -->
-        <section>
-            <h2>Tambah Barang</h2>
+        <section id="add-product" class="content-section">
+            <div class="section-heading">
+                <div>
+                    <h2>Tambah Barang</h2>
+                    <p>Masukkan informasi barang baru ke inventaris toko.</p>
+                </div>
+                <div class="heading-icon">＋</div>
+            </div>
 
             <form id="product-form">
-                <p>
-                    <label>Nama Barang</label>
-                    <input type="text" id="name" placeholder="Nama barang" required>
-                </p>
+                <div class="form-grid">
+                    <p>
+                        <label for="name">Nama Barang</label>
+                        <input type="text" id="name"
+                            placeholder="Contoh: Buku Tulis" required>
+                    </p>
 
-                <p>
-                    <label>Harga</label>
-                    <input type="number" id="price" placeholder="Harga" min="0" required>
-                </p>
+                    <p>
+                        <label for="price">Harga Barang (Rp)</label>
+                        <input type="number" id="price"
+                            placeholder="Contoh: 5000" min="0" required>
+                    </p>
 
-                <p>
-                    <label>Stok</label>
-                    <input type="number" id="stock" placeholder="Stok" min="0" value="0">
-                </p>
+                    <p>
+                        <label for="stock">Jumlah Stok</label>
+                        <input type="number" id="stock"
+                            placeholder="Masukkan jumlah stok"
+                            min="0" value="0">
+                    </p>
 
-                <p>
-                    <label>Kategori</label>
-                    <input type="text" id="category" placeholder="Kategori barang">
-                </p>
+                    <p>
+                        <label for="category">Kategori Barang</label>
+                        <input type="text" id="category"
+                            placeholder="Contoh: Alat Tulis">
+                    </p>
+                </div>
 
-                <button type="submit">+ Tambah Barang</button>
+                <div class="form-footer">
+                    <span>Pastikan informasi barang sudah benar.</span>
+                    <button type="submit">＋ Simpan Barang</button>
+                </div>
             </form>
         </section>
 
-        <!-- DATA INVENTARIS -->
-        <section>
-            <h2>Data Inventaris</h2>
-
-            <div class="search-box">
-                <input
-                    type="text"
-                    id="search-input"
-                    placeholder="🔍 Cari nama atau kategori barang..."
-                >
+        <!-- INVENTARIS -->
+        <section id="inventory" class="content-section">
+            <div class="section-heading">
+                <div>
+                    <h2>Data Inventaris</h2>
+                    <p>Kelola, cari, dan pantau seluruh barang toko.</p>
+                </div>
+                <a href="#add-product" class="primary-link">＋ Tambah Barang</a>
             </div>
 
-            <select id="category-filter">
-                <option value="">Semua Kategori</option>
-            </select>
+            <div class="inventory-panel">
+                <div class="inventory-toolbar">
+                    <div class="search-box">
+                        <span>⌕</span>
+                        <input
+                            type="text"
+                            id="search-input"
+                            placeholder="Cari nama atau kategori barang..."
+                        >
+                    </div>
 
-            <select id="status-filter">
-                <option value="">Semua Status</option>
-                <option value="tersedia">Tersedia</option>
-                <option value="menipis">Menipis</option>
-                <option value="habis">Habis</option>
-            </select>
+                    <div class="filter-group">
+                        <select id="category-filter">
+                            <option value="">Semua Kategori</option>
+                        </select>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nama Barang</th>
-                        <th>Harga</th>
-                        <th>Stok</th>
-                        <th>Kategori</th>
-                        <th>Status Stok</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
+                        <select id="status-filter">
+                            <option value="">Semua Status</option>
+                            <option value="tersedia">Tersedia</option>
+                            <option value="menipis">Menipis</option>
+                            <option value="habis">Habis</option>
+                        </select>
+                    </div>
+                </div>
 
-                <tbody id="product-list">
-                    <tr>
-                        <td colspan="7">Memuat data...</td>
-                    </tr>
-                </tbody>
-            </table>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Nama Barang</th>
+                                <th>Harga</th>
+                                <th>Stok</th>
+                                <th>Kategori</th>
+                                <th>Status Stok</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="product-list">
+                            <tr>
+                                <td colspan="7">Memuat data...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-footer">
+                    <span>Stockify Inventory Management</span>
+                    <span>Data barang toko</span>
+                </div>
+            </div>
         </section>
-    </main>
 
-    <script src="script.js"></script>
+        <footer class="page-footer">
+            © 2026 Stockify. Inventory Management System.
+        </footer>
+
+    </main>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
