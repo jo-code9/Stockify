@@ -25,10 +25,10 @@ async function loadProducts() {
             return;
         }
 
-        result.data.forEach(product => {
+        result.data.forEach((product, index) => {
             productList.innerHTML += `
                 <tr>
-                    <td>${product.id}</td>
+                    <td>${index + 1}</td>
                     <td>${product.name}</td>
                     <td>Rp ${product.price}</td>
                     <td>${product.stock}</td>
@@ -217,7 +217,7 @@ function updateDashboard(products) {
     );
 
     document.getElementById('total-categories').textContent = categories.size;
-    
+
     // Menghitung barang dengan stok menipis
 const lowStock = products.filter(product => {
     return Number(product.stock) > 0 && Number(product.stock) <= 5;
