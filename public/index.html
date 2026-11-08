@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stockify - Manajemen Inventaris</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Stockify</h1>
+        <p>Sistem Manajemen Inventaris dan Stok Barang Toko</p>
+    </header>
+
+    <hr>
+
+    <main>
+        <!-- DASHBOARD -->
+        <section>
+            <h2>Dashboard</h2>
+
+            <div class="dashboard">
+                <div class="dashboard-card">
+                    <h3>📦 Total Barang</h3>
+                    <p id="total-products">0</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>📊 Total Stok</h3>
+                    <p id="total-stock">0</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>🏷️ Total Kategori</h3>
+                    <p id="total-categories">0</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>⚠️ Stok Menipis</h3>
+                    <p id="low-stock">0</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>🚨 Stok Habis</h3>
+                    <p id="out-stock">0</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORM TAMBAH BARANG -->
+        <section>
+            <h2>Tambah Barang</h2>
+
+            <form id="product-form">
+                <p>
+                    <label>Nama Barang</label>
+                    <input type="text" id="name" placeholder="Nama barang" required>
+                </p>
+
+                <p>
+                    <label>Harga</label>
+                    <input type="number" id="price" placeholder="Harga" min="0" required>
+                </p>
+
+                <p>
+                    <label>Stok</label>
+                    <input type="number" id="stock" placeholder="Stok" min="0" value="0">
+                </p>
+
+                <p>
+                    <label>Kategori</label>
+                    <input type="text" id="category" placeholder="Kategori barang">
+                </p>
+
+                <button type="submit">+ Tambah Barang</button>
+            </form>
+        </section>
+
+        <!-- DATA INVENTARIS -->
+        <section>
+            <h2>Data Inventaris</h2>
+
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="🔍 Cari nama atau kategori barang..."
+                >
+            </div>
+
+            <select id="category-filter">
+                <option value="">Semua Kategori</option>
+            </select>
+
+            <select id="status-filter">
+                <option value="">Semua Status</option>
+                <option value="tersedia">Tersedia</option>
+                <option value="menipis">Menipis</option>
+                <option value="habis">Habis</option>
+            </select>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nama Barang</th>
+                        <th>Harga</th>
+                        <th>Stok</th>
+                        <th>Kategori</th>
+                        <th>Status Stok</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+
+                <tbody id="product-list">
+                    <tr>
+                        <td colspan="7">Memuat data...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
